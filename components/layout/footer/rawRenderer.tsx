@@ -1,28 +1,28 @@
-import React from "react";
-import { Fragment, useState } from "react";
-import { Dialog, Transition } from "@headlessui/react";
-import { useTheme } from "..";
+import React from 'react'
+import { Fragment, useState } from 'react'
+import { Dialog, Transition } from '@headlessui/react'
+import { useTheme } from '..'
 
 export const RawRenderer = ({ rawData, parentColor }) => {
-  const theme = useTheme();
+  const theme = useTheme()
   const buttonColorClasses = {
-    blue: "text-blue-500",
-    teal: "text-teal-500",
-    green: "text-green-500",
-    red: "text-red-500",
-    pink: "text-pink-500",
-    purple: "text-purple-500",
-    orange: "text-orange-500",
-    yellow: "text-yellow-600",
-  };
-  const [isOpen, setIsOpen] = useState(false);
+    blue: 'text-blue-500',
+    teal: 'text-teal-500',
+    green: 'text-green-500',
+    red: 'text-red-500',
+    pink: 'text-pink-500',
+    purple: 'text-purple-500',
+    orange: 'text-orange-500',
+    yellow: 'text-yellow-600',
+  }
+  const [isOpen, setIsOpen] = useState(false)
 
   function closeModal() {
-    setIsOpen(false);
+    setIsOpen(false)
   }
 
   function openModal() {
-    setIsOpen(true);
+    setIsOpen(true)
   }
 
   return (
@@ -37,7 +37,7 @@ export const RawRenderer = ({ rawData, parentColor }) => {
         View Raw Data
         <span
           className={`absolute w-full h-full left-0 top-0 rounded -z-1 ${
-            parentColor === "primary"
+            parentColor === 'primary'
               ? `bg-white opacity-80`
               : `bg-current opacity-15`
           }`}
@@ -90,5 +90,5 @@ export const RawRenderer = ({ rawData, parentColor }) => {
         </Dialog>
       </Transition>
     </>
-  );
-};
+  )
+}

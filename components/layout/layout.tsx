@@ -1,17 +1,26 @@
-import React from "react";
-import Head from "next/head";
-import { Header } from "./header";
-import { Footer } from "./footer";
-import layoutData from "../../content/global/index.json";
-import { Theme } from "./theme";
+import React from 'react'
+import Head from 'next/head'
+import { Header } from './header'
+import { Footer } from './footer'
+import { Theme } from './theme'
+import layoutData from '../../content/global/index.json'
+import { Global } from '../../.tina/__generated__/types'
 
-export const Layout = ({ rawData = {}, data = layoutData, children }) => {
+export const Layout = ({
+  rawData = {},
+  data = layoutData,
+  children,
+}: {
+  rawData?: object
+  data?: Omit<Global, 'id' | '_sys' | '_values'>
+  children: React.ReactNode
+}) => {
   return (
     <>
       <Head>
         <title>Tina</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        {data.theme.font === "nunito" && (
+        {data.theme.font === 'nunito' && (
           <>
             <link rel="preconnect" href="https://fonts.googleapis.com" />
             <link rel="preconnect" href="https://fonts.gstatic.com" />
@@ -21,7 +30,7 @@ export const Layout = ({ rawData = {}, data = layoutData, children }) => {
             />
           </>
         )}
-        {data.theme.font === "lato" && (
+        {data.theme.font === 'lato' && (
           <>
             <link rel="preconnect" href="https://fonts.googleapis.com" />
             <link rel="preconnect" href="https://fonts.gstatic.com" />
@@ -35,9 +44,9 @@ export const Layout = ({ rawData = {}, data = layoutData, children }) => {
       <Theme data={data?.theme}>
         <div
           className={`min-h-screen flex flex-col ${
-            data.theme.font === "nunito" && "font-nunito"
-          } ${data.theme.font === "lato" && "font-lato"} ${
-            data.theme.font === "sans" && "font-sans"
+            data.theme.font === 'nunito' && 'font-nunito'
+          } ${data.theme.font === 'lato' && 'font-lato'} ${
+            data.theme.font === 'sans' && 'font-sans'
           }`}
         >
           <Header data={data?.header} />
@@ -52,5 +61,5 @@ export const Layout = ({ rawData = {}, data = layoutData, children }) => {
         </div>
       </Theme>
     </>
-  );
-};
+  )
+}
